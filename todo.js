@@ -38,6 +38,17 @@ function toggleDone(key) {
     }
 }
 
+function deleteTodo(key) {
+    todoItems = todoItems.filter(item => item.id !== Number(key));
+    const item = document.querySelector(`[data-key='${key}']`);
+    item.remove();
+
+    const list = document.querySelector('.todo-list');
+    if (todoItems.length === 0) {
+        list.innerHTML = '';
+    }
+}
+
 const form = document.querySelector('.todo-form');
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -56,5 +67,10 @@ list.addEventListener('click', event => {
     if(event.target.classList.contains('tick')) {
         const itemKey = event.target.parentElement.dataset.key;
         toggleDone(itemKey);
+    }
+
+    if(event.target.classList.contains('delete-todo')) {
+        const itemKey = event.target.parentElement.dataset.key;
+        deleteTodo(itemKey);
     }
 });

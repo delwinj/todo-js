@@ -31,6 +31,21 @@ svg {
     height: 64px;
 }
 
+.empty-state {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.checklist-icon {
+    margin-bottom: 20px;
+}
+
+.empty-state-title, .empty-state-description {
+    margin-bottom: 20px;
+}
+
 .todo-form {
     width: 100%;
 }
@@ -114,4 +129,12 @@ input[type="checkbox"] {
 
 input::placeholder {
     font-size: 22px;
+}
+
+.todo-list:empty {
+    display: none;
+}
+
+.todo-list:empty + .empty-state {
+    display: flex;
 }
