@@ -4,7 +4,7 @@ function renderTodo(todo) {
     const list = document.querySelector('.todo-list');
     list.insertAdjacentHTML('beforeend', `
         <li class="todo-item" data-key="${todo.id}">
-            <input id="${todo.id}" type="checkbox" class="styled">
+            <input id="${todo.id}" type="checkbox">
             <label for="${todo.id}" class="tick"></label>
             <span>${todo.text}</span>
             <button class="delete-todo">
